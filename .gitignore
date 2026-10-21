@@ -3,4 +3,6 @@
 .RData
 .Ruserdata
 data/
-outputs/
+outputs/*
+!outputs/HU_nanoplot_report/NanoPlot-report.html
+!outputs/WA_nanoplot_report/NanoPlot-report.html

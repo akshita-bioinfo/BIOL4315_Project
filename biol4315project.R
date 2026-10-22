@@ -25,3 +25,10 @@ files
 # pip install nanoplot
 # NanoPlot --fastq data/wickerhamomycesAnomalus.fastq --outdir outputs/WA_nanoplot_report
 # NanoPlot --fastq data/hanseniasporaUvarum.fastq --outdir outputs/HU_nanoplot_report
+
+#------IN BASH-------#
+# using sequali
+# conda activate sequali-env
+# sequali --outdir outputs/WAsequali_reports/ data/wickerhamomycesAnomalus.fastq
+# sequali --outdir outputs/HUsequali_reports/ data/hanseniasporaUvarum.fastq
+

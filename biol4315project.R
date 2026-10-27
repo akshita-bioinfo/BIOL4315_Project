@@ -32,3 +32,17 @@ files
 # sequali --outdir outputs/WAsequali_reports/ data/wickerhamomycesAnomalus.fastq
 # sequali --outdir outputs/HUsequali_reports/ data/hanseniasporaUvarum.fastq
 
+dir.create(path = "outputs/filtered_files", showWarnings = TRUE)
+
+#------IN BASH------#
+# using filtlong
+# conda activate filtlong_env
+# filtlong --keep_percent 75 data/wickerhamomycesAnomalus.fastq > outputs/filtered_files/WA_filtlong_filtered_reads.fastq
+# filtlong --keep_percent 75 data/hanseniasporaUvarum.fastq > outputs/filtered_files/HU_filtlong_filtered_reads.fastq
+
+dir.create(path = "outputs/sequali_filtered_files", showWarnings = TRUE)
+
+#-------IN BASH-----#
+# Run Sequali over filtered files
+# sequali --outdir outputs/sequali_filtered_files/ outputs/filtered_files/WA_filtlong_filtered_reads.fastq
+# sequali --outdir outputs/sequali_filtered_files/ outputs/filtered_files/HU_filtlong_filtered_reads.fastq

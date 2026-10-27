@@ -8,3 +8,5 @@ outputs/*
 !outputs/WA_nanoplot_report/NanoPlot-report.html
 !outputs/HUsequali_reports/hanseniasporaUvarum.fastq.html
 !outputs/WAsequali_reports/wickerhamomycesAnomalus.fastq.html
+!outputs/sequali_filtered_files/WA_filtlong_filtered_reads.fastq.html
+!outputs/sequali_filtered_files/HU_filtlong_filtered_reads.fastq.html

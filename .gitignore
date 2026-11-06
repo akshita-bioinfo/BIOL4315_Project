@@ -4,29 +4,55 @@
 .Ruserdata
 data/ 
 busco_downloads/
+# Ignore all output contents by default
 outputs/*
-outputs/assembly/WA_flye_output/*
-outputs/busco_output/WA/*
-outputs/QUAST_assembly_analysis/WA/*
-outputs/WA_nanoplot_report/*
-outputs/WAsequali_reports/*
-outputs/sequali_filtered_files/*
-outputs/assembly/HU_flye_output/*
-outputs/busco_output/HU/*
-outputs/HU_nanoplot_report/*
-outputs/HUsequali_reports/*
-outputs/QUAST_assembly_analysis/HU/*
 
-!outputs/HU_nanoplot_report/NanoPlot-report.html
-!outputs/WA_nanoplot_report/NanoPlot-report.html
-!outputs/HUsequali_reports/hanseniasporaUvarum.fastq.html
-!outputs/WAsequali_reports/wickerhamomycesAnomalus.fastq.html
-!outputs/sequali_filtered_files/WA_filtlong_filtered_reads.fastq.html
-!outputs/sequali_filtered_files/HU_filtlong_filtered_reads.fastq.html
+# Allow main output directories
+!outputs/assembly/
+!outputs/busco_output/
+!outputs/QUAST_assembly_analysis/
+!outputs/WA_nanoplot_report/
+!outputs/HU_nanoplot_report/
+!outputs/WAsequali_reports/
+!outputs/HUsequali_reports/
+!outputs/sequali_filtered_files/
+
+# WA Flye: keep only log
+outputs/assembly/WA_flye_output/*
 !outputs/assembly/WA_flye_output/flye.log
+
+# HU Flye: keep only log
+outputs/assembly/HU_flye_output/*
 !outputs/assembly/HU_flye_output/flye.log
-!outputs/busco_output/WA/short_summary.specific.saccharomyces_odb12.WA.txt
-!outputs/busco_output/HU/short_summary.specific.saccharomyces_odb12.HU.txt
+
+# WA BUSCO: keep summary
+outputs/busco_output/WA/*
+!outputs/busco_output/WA/short_summary*.txt
+
+# HU BUSCO: keep summary
+outputs/busco_output/HU/*
+!outputs/busco_output/HU/short_summary*.txt
+
+# WA QUAST: keep HTML report
+outputs/QUAST_assembly_analysis/WA/*
 !outputs/QUAST_assembly_analysis/WA/report.html
+
+# HU QUAST: keep HTML report
+outputs/QUAST_assembly_analysis/HU/*
 !outputs/QUAST_assembly_analysis/HU/report.html
 
+# WA NanoPlot
+outputs/WA_nanoplot_report/*
+!outputs/WA_nanoplot_report/NanoPlot-report.html
+
+# HU NanoPlot
+outputs/HU_nanoplot_report/*
+!outputs/HU_nanoplot_report/NanoPlot-report.html
+
+# WA Sequali
+outputs/WAsequali_reports/*
+!outputs/WAsequali_reports/*.html
+
+# HU Sequali
+outputs/HUsequali_reports/*
+!outputs/HUsequali_reports/*.html

@@ -55,7 +55,6 @@ dir.create(path = "outputs/assembly" , showWarnings = TRUE)
 
 #----------IN BASH: MEDAKA POLISHING------------#
 # MAKING REQUIRED DIRECTORIES
-# mkdir -p outputs/medaka_round1 outputs/medaka_round2
 # mkdir -p outputs/medaka_round1/WA outputs/medaka_round1/HU outputs/medaka_round2/WA outputs/medaka_round2/HU
 
 # MEDAKA ROUND1 AND ROUND2 FOR WA
@@ -68,10 +67,36 @@ dir.create(path = "outputs/assembly" , showWarnings = TRUE)
 
 #---------IN BASH: ASSEMBLY ANALYSIS------------#
 # MAKING REQUIRED DIRECTORIES
-# mkdir -p outputs/busco_output/WA
-# docker run --rm \
-# -v "$PWD":/data \
-# -w /data \
-# ezlabgva/busco:v6.0.0_cv1 \
-# busco -i outputs/medaka_round2/WA/consensus.fasta -o outputs/busco_output/WA -l saccharomycetaceae_odb12 -m genome -c 8
+# mkdir -p outputs/QUAST_assembly_analysis/WA outputs/QUAST_assembly_analysis/HU 
+# mkdir -p outputs/BUSCO_assembly_analysis/WA outputs/BUSCO_assembly_analysis/HU
+
+#_________QUAST (WITHOUT REF)___________#
+#_________W. Anomalus___________________#
+# docker run --rm -v "$(pwd)":/data \
+# -w/data quay.io/biocontainers/quast:5.3.0--py313pl5321h5ca1c30_2 \
+# quast.py outputs/medaka_round2/WA/consensus.fasta \
+# -o outputs/QUAST_assembly_analysis/WA
+
+#_________H. Uvarum____________________#
+# docker run --rm -v "$(pwd)":/data \
+# -w/data quay.io/biocontainers/quast:5.3.0--py313pl5321h5ca1c30_2 \
+# quast.py outputs/medaka_round2/HU/consensus.fasta \
+# -o outputs/QUAST_assembly_analysis/HU
+
+#_____________BUSCO____________________#
+#_________W. Anomalus__________________#
+# docker run --rm -v "$PWD":/data \
+# -w /data ezlabgva/busco:v6.0.0_cv1 \
+# busco -i outputs/medaka_round2/WA/consensus.fasta \
+# -o outputs/busco_output/WA \
+# --auto-lineage-euk \
+# -m genome -c 8
+
+#_________H. Uvarum____________________#
+# docker run --rm -v "$PWD":/data \
+# -w /data ezlabgva/busco:v6.0.0_cv1 \
+# busco -i outputs/medaka_round2/HU/consensus.fasta \
+# -o outputs/busco_output/HU \
+# --auto-lineage-euk \
+# -m genome -c 8
 

@@ -1,4 +1,4 @@
-# BIOL4315_Project
+# BIOL4315_Project (seq data from last year)
 
 # install packages if req
 if (!requireNamespace("BiocManager", quietly = TRUE))
